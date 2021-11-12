@@ -38,14 +38,11 @@ function Board()
     if(squares[s]!="blank")
     {
       tie++;
-     // console.log("Empty: "+tie)
-
     }
   }
 
  
   const win=calcWinner();
-  //console.log("Click")
   if(win)
   {
     status=win
@@ -59,9 +56,7 @@ function Board()
 
   function calcWinner()
   {
-    //let winner=false;
     let count=true;
-    //console.log("IN");
     var index=0;
     let player1R=1;
     let player2R=1;
@@ -80,14 +75,10 @@ function Board()
 
       for(let x=1, y=1;count&&(player1R!=4||player2R!=4||player1V!=4||player2V!=4)&&squares[cell]!="blank";)
       {
-        //console.log("IN2 "+ cell);
 
-        //console.log("HELPPPPPPPPPP "+ cell);
-        //console.log(squares[8])
 
         if(squares[cell]== squares[cell+(1*x)])
         {
-         // console.log("IN4");  create a if statement to keeep track if its player 1 or 2
           if(square[cell]=="player1")
           {
             player1R++;
@@ -144,14 +135,11 @@ function Board()
            {
              return "Winner: Yellow"
            }
-          //console.log("WON")
-
-          //return true;
+        
         }
 
 
       }
-      //console.log("LEFT ")
 
       
 
@@ -244,91 +232,10 @@ function Board()
                 {renderSquare(41)}
             </div>
 
-            {status}
+            <h1 >{status}</h1>
         </div>
   );
  
 }
-
-
-
-
-/*
-class Board2 extends React.Component
-{
-   constructor(props)
-    {
-      super(props);
-      this.handleClick = this.handleClick.bind(this);
-
-      this.state={
-        'gameBoard':[
-          [0,0,0,0,0,0,0],
-          [0,0,0,0,0,0,0],
-          [0,0,0,0,0,0,0],
-          [0,0,0,0,0,0,0],
-          [0,0,0,0,0,0,0],
-          [0,0,0,0,0,0,0]
-        ],
-        'turn':0,
-        'player':1
-      }
-
-    }
-   
-
-    handleClick() 
-    {
-
-      count++;
-      if(count%2==0)
-      {
-        player=1
-      }
-      else
-      {
-        player=2;
-      }
-      this.setState({'turn': count})
-      this.setState({'player':player})
-      this.setState({'gameBoard':[1][1]=1})
-    }
-
-    render()
-    {
-      
-      return (
-        <div > 
-              <div> 
-            <button id="1" className="player2" onClick={this.handleClick}> </button>
-            <button id="2" className="blank" onClick={this.handleClick}> </button>
-            <button id="3" className="blank" onClick={this.handleClick}> </button>
-            <button id="4" className="blank" onClick={this.handleClick}> </button>
-            <button id="5" className="blank" onClick={this.handleClick}> </button>
-            <button id="6" className="blank" onClick={this.handleClick}> </button>
-            <button id="7" className="blank" onClick={this.handleClick}> </button>
-            </div>
-
-            <div> 
-            <button id="8" className="blank" onClick={this.handleClick}> </button>
-            <button id="9" className="blank" onClick={this.handleClick}> </button>
-            <button id="10" className="blank" onClick={this.handleClick}> </button>
-            <button id="11" className="blank" onClick={this.handleClick}> </button>
-            <button id="12" className="blank" onClick={this.handleClick}> </button>
-            <button id="13" className="blank" onClick={this.handleClick}> </button>
-            <button id="14" className="blank" onClick={this.handleClick}> </button>
-            </div>
-
-            <div>
-            <p>Turn number = {this.state.turn} </p>
-            <p>Player {this.state.player} turn</p>
-            </div>
-        </div> 
-
-     
-       
-      );
-    }
-}*/
 
 export default Board;
